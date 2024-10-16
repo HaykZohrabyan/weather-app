@@ -38,6 +38,33 @@ code {
   padding: 0 15px;
 }
 
+.modal {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  display: flex;
+  visibility: hidden;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s linear;
+  transform: translateY(100px);
+
+  &.show {
+    transform: translateY(0);
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.modal-dialog {
+  padding: 20px;
+  max-width: 400px;
+  width: 100%;
+  border-radius: 8px;
+  background-color: white;
+}
+
 .header-inner {
   display: flex;
   justify-content: space-between;
@@ -57,6 +84,7 @@ code {
 }
 
 .weather-container {
+  margin-top: 100px;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
@@ -64,4 +92,79 @@ code {
 
 .weather-left {
   text-align: center;
+  width: 50%;
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  b {
+    display: block;
+  }
+}
+
+.weather-right {
+  width: 50%;
+}
+
+.weather-daily-item {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-bottom: 1px solid gray;
+}
+
+.loader-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+}
+
+.loader {
+  --size: 24px;
+  --stroke-width: calc(var(--size) / 6);
+  --color: currentColor;
+  --animation-timing-function: linear;
+  --animation-duration: 1s;
+  width: var(--size);
+  height: var(--size);
+  border-width: var(--stroke-width);
+  border-style: solid;
+  border-color: var(--color) var(--color) var(--color) transparent;
+  border-radius: 50%;
+  transform: rotate(0deg);
+  animation: var(--animation-timing-function) var(--animation-duration) infinite spin;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.daily-days-wrapper {
+  margin-top: 50px;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.daily-days-item {
+  border: 1px solid gray;
+  padding: 15px;
+}
+
+.daily-days-item-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
