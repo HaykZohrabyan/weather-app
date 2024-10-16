@@ -1,5 +1,4 @@
 import React, { type FormEvent, useState } from 'react';
-import Modal from './modal';
 import { useAppSelector } from '../../hooks/use-app-selector';
 import { useAppDispatch } from '../../hooks/use-app-dispatch';
 import { weatherSlice } from '../../store/reducers/weather.slice';
@@ -24,7 +23,7 @@ const Header = () => {
               <input
                 type="text"
                 value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)} // Update the state on input change
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
               <button type="submit">Search city</button>
             </form>
